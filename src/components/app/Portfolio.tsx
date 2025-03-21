@@ -111,27 +111,31 @@ function Portfolio() {
   };
 
   return (
-    <div>
+    <div className="p-2 md:p-4">
       <div>
-        <p className="text-xl py-4 font-bold">Portfolio</p>
+        <p className="text-lg md:text-xl py-2 md:py-4 font-bold">Portfolio</p>
       </div>
 
-      <div className="flex flex-row items-center my-2 mb-4 gap-2">
-        {tags.map((tag, index) => (
-          <div className="border rounded-md p-2 px-3" key={index}>
-            <p className="text-gray-800 font-medium">{tag}</p>
-          </div>
-        ))}
+      {/* Scrollable tags container for mobile */}
+      <div className="overflow-x-auto pb-2">
+        <div className="flex flex-row items-center my-2 mb-4 gap-1 md:gap-2 whitespace-nowrap">
+          {tags.map((tag, index) => (
+            <div className="border rounded-md p-1 md:p-2 px-2 md:px-3" key={index}>
+              <p className="text-gray-800 font-medium text-xs md:text-sm">{tag}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <div className="flex flex-row justify-between my-4">
-        <div>
-          <Input className="" type="text" placeholder="Search Loan Number" />
+      {/* Search and filters section */}
+      <div className="flex flex-col md:flex-row justify-between my-4 gap-4">
+        <div className="w-full md:w-auto">
+          <Input className="w-full" type="text" placeholder="Search Loan Number" />
         </div>
 
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-row items-center flex-wrap gap-2">
           <Select>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full md:w-[180px]">
               <SelectValue placeholder="Select Columns" />
             </SelectTrigger>
             <SelectContent>
@@ -140,14 +144,14 @@ function Portfolio() {
             </SelectContent>
           </Select>
 
-          <Button className="bg-blue-600">
-            <Filter />
+          <Button className="bg-blue-600 text-xs md:text-sm">
+            <Filter className="mr-1 h-4 w-4" />
             More filters
           </Button>
 
-          <div className="mr-4">
+          <div className="w-full md:w-auto md:mr-4">
             <Sheet>
-              <SheetTrigger className="bg-black rounded-lg p-2 text-white px-3">
+              <SheetTrigger className="bg-black rounded-lg p-2 text-white px-3 w-full md:w-auto text-xs md:text-sm">
                 Upload
               </SheetTrigger>
               <SheetContent>
@@ -221,7 +225,7 @@ function Portfolio() {
                         <SheetClose ref={sheetCloseRef} asChild>
                           <Button
                             variant="outline"
-                            className="mr-2"
+                            className="mr-2 text-xs md:text-sm"
                             onClick={() =>
                               setFormData({
                                 documentName: "",
@@ -235,7 +239,7 @@ function Portfolio() {
                           </Button>
                         </SheetClose>
                         <Button
-                          className="bg-blue-500"
+                          className="bg-blue-500 text-xs md:text-sm"
                           onClick={handleUpload}
                           disabled={isUploading}
                         >
@@ -250,7 +254,8 @@ function Portfolio() {
           </div>
         </div>
       </div>
-      <div className="flex">
+      
+      <div className="w-full overflow-x-auto">
         <LoanTable />
       </div>
     </div>
