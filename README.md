@@ -1,54 +1,90 @@
-# React + TypeScript + Vite
+# Resollect Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Resollect Assignment is a React-based project built using **Vite**, **TypeScript**, **Tailwind CSS**, and **shadcn/ui**. It follows a modular component structure with reusable UI elements and custom hooks.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Vite**: Fast and lightweight development environment
+- **TypeScript**: Strongly typed JavaScript for better development experience
+- **Tailwind CSS**: Utility-first CSS framework for styling
+- **shadcn/ui**: A set of customizable components based on Radix UI
+- **Radix UI**: Accessible UI primitives for better user experience
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+├── README.md                # Project documentation
+├── components.json          # shadcn/ui component configuration
+├── eslint.config.js         # ESLint configuration
+├── index.html               # Main HTML file
+├── package-lock.json        # Lock file for dependencies
+├── package.json             # Project metadata and scripts
+├── postcss.config.js        # PostCSS configuration for Tailwind CSS
+├── public/
+│   └── vite.svg             # Public assets
+├── src/
+│   ├── App.tsx              # Root component
+│   ├── assets/              # Static assets (e.g., images, SVGs)
+│   │   └── react.svg
+│   ├── components/          # UI and application components
+│   │   ├── app/             # Application-specific components
+│   │   │   ├── LoanTable.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Portfolio.tsx
+│   │   │   └── Sidebar.tsx
+│   │   └── ui/              # Reusable UI components (shadcn)
+│   │       ├── avatar.tsx
+│   │       ├── button.tsx
+│   │       ├── checkbox.tsx
+│   │       ├── dropdown-menu.tsx
+│   │       ├── input.tsx
+│   │       ├── select.tsx
+│   │       ├── sheet.tsx
+│   │       ├── table.tsx
+│   │       ├── tabs.tsx
+│   │       ├── toast.tsx
+│   │       └── toaster.tsx
+│   ├── hooks/               # Custom hooks
+│   │   └── use-toast.ts
+│   ├── index.css            # Global styles
+│   ├── lib/                 # Utility functions and API interactions
+│   │   ├── api.ts           # API configuration
+│   │   └── utils.ts         # General utility functions
+│   ├── main.tsx             # Main entry point for React
+│   └── vite-env.d.ts        # TypeScript environment definitions
+├── tailwind.config.js       # Tailwind CSS configuration
+├── tsconfig.app.json        # TypeScript configuration for the app
+├── tsconfig.json            # Global TypeScript configuration
+├── tsconfig.node.json       # TypeScript configuration for Node.js
+└── vite.config.ts           # Vite configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Installation & Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/resollect-assignment.git
+   cd resollect-assignment
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+
+4. Open your browser and visit `http://localhost:5173/`
+
+## Scripts
+- `npm run dev` - Starts the development server
+- `npm run build` - Builds the project for production
+- `npm run lint` - Runs ESLint to check code quality
+- `npm run preview` - Previews the built project
+
+## License
+This project is licensed under the MIT License.
+
