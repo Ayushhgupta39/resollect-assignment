@@ -1,4 +1,5 @@
-export const uploadDocument = async (fileData) => {
+export const uploadDocument = async (fileData: any) => {
+  console.log(fileData);
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
